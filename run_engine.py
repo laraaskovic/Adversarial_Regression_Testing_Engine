@@ -19,7 +19,6 @@ def main() -> None:
         default=Path("artifacts/episodes"),
         help="Where to store replayable failure episodes",
     )
-    parser.add_argument("--base-url", default="http://127.0.0.1:8000", help="Target app base URL")
     parser.add_argument(
         "--no-autostart",
         action="store_false",

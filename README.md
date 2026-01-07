@@ -34,6 +34,12 @@ python -m engine.replay artifacts/episodes/episode_seed42_*.json --base-url http
 ```
 The replay runner resets the app, replays the same action sequence, and reports whether anomalies persist.
 
+## Interactive UI Demo
+- Start the app (`python demo_app.py`) and open `http://127.0.0.1:8000` in a browser.
+- The page shows live state from `/state`, buttons for mode/restock/purchase, and an action log.
+- Click **Run demo** to watch a scripted "model" sequence move a cursor between controls, trigger the intentional oversell path, and surface alerts/slow mode.
+- Use the manual controls to reproduce or explore other sequences; the state panel and alerts update after every action.
+
 ## Design Notes
 - Explicit state: `/state` surfaces mode, inventory, alerts, invariant violations, and recent events so the engine can reason about transitions.
 - Observability: Every observation includes status code, latency, state snapshot, and log excerpts; request latency is also emitted via `X-Request-Latency-ms`.
